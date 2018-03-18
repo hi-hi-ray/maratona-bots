@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
-namespace BotTranslator.Dialogs
+namespace BotTranslatorUnicorn.Dialogs
 {
     [Serializable]
     public class RootDialog : IDialog<object>

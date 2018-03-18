@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace BotTranslator
+namespace BotTranslatorUnicorn
 {
     public static class WebApiConfig
     {
