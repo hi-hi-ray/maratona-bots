@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 
-namespace BotApplication.Dialogs
+namespace BotTranslator.Dialogs
 {
     [Serializable]
     public class RootDialog : IDialog<object>
@@ -19,11 +20,17 @@ namespace BotApplication.Dialogs
         {
             var activity = await result as Activity;
 
-            // calculate something for us to return
-            int length = (activity.Text ?? string.Empty).Length;
+            await context.PostAsync("Wellcome to hi-hi-ray bot!");
 
-            // return our reply to the user
-            await context.PostAsync($"You sent {activity.Text} which was {length} characters");
+            var message = activity.CreateReply();
+            var heroCard = new HeroCard();
+            heroCard.Title = "Planet";
+            heroCard.Subtitle = "Universe";
+            heroCard.Images = new List<CardImage> {  new CardImage("https://avatars0.githubusercontent.com/u/9919?s=280&v=4", "logo github") };
+            message.Attachments.Add(heroCard.ToAttachment());
+
+            await context.PostAsync(message);
+
 
             context.Wait(MessageReceivedAsync);
         }
