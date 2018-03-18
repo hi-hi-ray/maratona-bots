@@ -15,10 +15,6 @@ namespace BotTranslatorUnicorn
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        /// <summary>
-        /// POST: api/Messages
-        /// Receive a message from a user and reply to it
-        /// </summary>
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
 
